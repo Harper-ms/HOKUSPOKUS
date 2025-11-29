@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Focus-Lock2</string>
+    <string name="accessibility_summary">FocusLock app blocker</string>
+    <string name="accessibility_description">Blocks apps selected by parents</string>
+
+    <string name="locked_icon_desc">Locked icon</string>
+
+    <string name="title_tasks">Tasks</string>
+    <string name="title_settings_parent">Settings (Parent)</string>
+
+    <string name="parent_dashboard_set_apps">SET APPLICATIONS FOR TIMEOUT</string>
+    <string name="parent_dashboard_set_schedules">SET SCHEDULES</string>
+    <string name="parent_dashboard_completion_log">COMPLETION LOG</string>
+    <string name="parent_dashboard_options">OPTIONS</string>
+    <string name="change_account">CHANGE ACCOUNT</string>
+    <string name="log_out">LOG OUT</string>
+
+    <string name="set_tasks_title">SCHEDULED TASKS</string>
+    <string name="set_tasks_hint_new">New Task</string>
+    <string name="add_more">+ ADD MORE</string>
+
+    <string name="set_timeout_title">SET APPLICATIONS FOR TIMEOUT</string>
+
+    <string name="tasks_title">Scheduled Tasks</string>
+    <string name="completion_logs">COMPLETION LOGS</string>
+
+    <string name="verify_access_title">VERIFY ACCESS</string>
+    <string name="verify_access_parent_email_hint">Parent email</string>
+    <string name="done">DONE</string>
+    <string name="resend_verification">RESEND VERIFICATION</string>
+    <string name="back_to_home">BACK TO HOME</string>
+
+    <string name="app_locked">App Locked</string>
+    <string name="access_denied">ACCESS DENIED!</string>
+    <string name="go_home">Go Home</string>
+    <string name="time_remaining_format">Time remaining: %1$dh %2$dm %3$ds</string>
+    <string name="locked">Locked</string>
+    <string name="apps_locked_title">Apps locked</string>
+</resources>
