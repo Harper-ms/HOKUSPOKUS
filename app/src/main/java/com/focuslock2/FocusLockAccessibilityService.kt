@@ -13,8 +13,8 @@ class FocusLockAccessibilityService : AccessibilityService() {
     private var stopRunnable: Runnable? = null
     private var showHandler: android.os.Handler? = null
     private var showRunnable: Runnable? = null
-    private val SHOW_DELAY_MS = 400L
-    private val MIN_HOLD_MS = 10_000L
+    private val SHOW_DELAY_MS = 0L  // Changed from 400L to 0L for instant overlay
+    private val MIN_HOLD_MS = 10_000L  // Added back: Minimum time to hold the overlay (10 seconds)
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
         try {
@@ -63,7 +63,7 @@ class FocusLockAccessibilityService : AccessibilityService() {
                         Log.e("FocusLockAccessibilityService", "Error starting overlay", e)
                     }
                 }
-                showHandler?.postDelayed(showRunnable!!, SHOW_DELAY_MS)
+                showHandler?.postDelayed(showRunnable!!, SHOW_DELAY_MS)  // Now instant (0L)
             } else {
                 val elapsed = if (overlayShownAt == 0L) Long.MAX_VALUE else now - overlayShownAt
                 val delay = if (elapsed >= MIN_HOLD_MS) 0L else MIN_HOLD_MS - elapsed

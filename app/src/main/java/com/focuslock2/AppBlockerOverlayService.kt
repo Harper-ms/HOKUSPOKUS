@@ -59,7 +59,7 @@ class AppBlockerOverlayService : Service() {
                     Log.e("AppBlockerOverlayService", "Error getting app label", e)
                     blockedPackage ?: ""
                 }
-                text = label
+                text = label  // Reverted to original: Just set the label
                 setTextColor(0xFFFFFFFF.toInt())
                 textSize = 14f
             }
@@ -84,12 +84,13 @@ class AppBlockerOverlayService : Service() {
         val type = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
         else
-            WindowManager.LayoutParams.TYPE_SYSTEM_ALERT  // Safer fallback than TYPE_PHONE
+            WindowManager.LayoutParams.TYPE_SYSTEM_ALERT
         val params = WindowManager.LayoutParams(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.MATCH_PARENT,
             type,
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or  // Added: Blocks touches
                     WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or
                     WindowManager.LayoutParams.FLAG_FULLSCREEN,
             PixelFormat.TRANSLUCENT
@@ -146,7 +147,6 @@ class AppBlockerOverlayService : Service() {
             handler?.postDelayed(updateRunnable!!, 1000)
         }
         handler?.post(updateRunnable!!)
-        // Removed the 10-second auto-stop to avoid conflicts with the timer
     }
 
     private fun stopCountdown() {
